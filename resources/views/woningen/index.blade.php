@@ -10,6 +10,10 @@
 </head>
 <body>
   <div class="container" style="margin:40px;">
+  <h1 class="display-3">Vakantie Woningen</h1>
+    <div>
+      <a href="/create" class="btn btn-primary mb-3">Woning Toevoegen</a>
+    </div>
     <table class="table">
       <thead class="thead-light">
           <tr>

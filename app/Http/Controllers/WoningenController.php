@@ -12,9 +12,9 @@ class WoningenController extends Controller
      */
     public function index()
     {
-    $woningen = Woningen::all();
+        $woningen = Woningen::all();
 
-    return view('woningen.index', compact('woningen')); // -> resources/views/stocks/index.blade.php
+        return view('woningen.index', compact('woningen')); // -> resources/views/stocks/index.blade.php
     }
 
     /**
@@ -22,23 +22,30 @@ class WoningenController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('woningen.create'); // -> resources/views/stocks/create.blade.php
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function store(Request $request)
     {
-        //
+    // Validation for required fields (and using some regex to validate our numeric value)
+    $request->validate([
+        'naam'=>'required',
+        'beschrijving'=>'required',
+        'oppervlakte'=>'required|max:8|regex:/^[0-9]+(?:\.[0-9]{1,2})?$/',
+        'prijs'=>'required|max:8|regex:/^[0-9]+(?:\.[0-9]{1,2})?$/'
+    ]);
+    // Getting values from the blade template form
+    $woning = new Woningen([
+        'naam' => $request->get('naam'),
+        'beschrijving' => $request->get('beschrijving'),
+        'oppervlakte' => $request->get('oppervlakte'),
+        'prijs' => $request->get('prijs')
+    ]);
+    $woning->save();
+    return redirect('/woningen')->with('success', 'Woning toegevoegd.');   // -> resources/views/stocks/index.blade.php
     }
 
     /**
