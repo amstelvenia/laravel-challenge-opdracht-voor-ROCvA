@@ -45,6 +45,21 @@
                 <button onclick="return confirm('Zeker Weten?')" class="btn btn-danger" type="submit">Delete</button>
                </form>
               </td>
+              <td>
+              <div class="fotoding">
+                    @php
+                        $mediaItems = $woning->getMedia('images');
+                    @endphp
+
+                    @if($mediaItems->isNotEmpty())
+                    @foreach($mediaItems as $mediaItem)
+                        <img src="{{ $mediaItem->getUrl() }}" alt="images" width="100" class="foto">
+                    @endforeach
+                    @else
+                        Geen afbeelding
+                    @endif
+                </div>
+              </td>
           </tr>
           @endforeach
       </tbody>

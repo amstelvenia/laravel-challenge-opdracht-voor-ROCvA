@@ -10,9 +10,9 @@
 <body>
   <div class="container" style="margin:40px;">
 
-  <h1 class="display-3">Vakantie Woning</h1>
+    <h1 class="display-3">Vakantie Woning</h1>
 
-    <form method="post" action="/store">
+    <form method="post" action="/store" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
               <label for="naam">Naam:*</label>
@@ -33,7 +33,11 @@
               <label for="prijs">Prijs:</label>
               <input type="text" class="form-control" name="prijs"/>
           </div>
-          <button type="submit" class="btn btn-primary">Opslaan</button>
+          <div class="form-group">
+            <label for="image">Afbeelding:</label>
+            <input type="file" name="images[]" id="images" multiple required>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Opslaan</button>
       </form>
 
   </div>

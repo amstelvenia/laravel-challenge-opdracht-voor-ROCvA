@@ -12,8 +12,8 @@
 
     <h1 class="display-3">Vakantie Woningen</h1>
 
-    <form method="post" action="/update/{{$woning->id}}">
-        @csrf
+    <form method="post" action="/update/{{$woning->id}}" enctype="multipart/form-data">
+          @csrf
           <div class="form-group">
               <label for="naam">Naam:*</label>
               <input type="text" class="form-control" name="naam" value="{{ $woning->naam }}"/>
@@ -33,7 +33,11 @@
               <label for="prijs">Prijs:</label>
               <input type="text" class="form-control" name="prijs" value="{{ $woning->prijs }}"/>
           </div>
-          <button type="submit" class="btn btn-primary">Opslaan</button>
+          <div class="form-group">
+              <label for="image">Afbeelding:</label>
+              <input type="file" name="image[]" id="image" multiple required>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Opslaan</button>
     </form>
 
   </div>
