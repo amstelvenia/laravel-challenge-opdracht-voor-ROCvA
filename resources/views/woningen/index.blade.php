@@ -24,6 +24,8 @@
             <th>Prijs (€)</th>
             <th>Created at</th>
             <th>Updated at</th>
+            <th></th>
+            <th></th>
           </tr>
       </thead>
       <tbody>
@@ -36,6 +38,13 @@
               <td>{{$woning->prijs}}</td>
               <td>{{$woning->created_at}}</td>
               <td>{{$woning->updated_at}}</td>
+              <td><a href="/edit/{{$woning->id}}" class="btn btn-primary">Update</a></td>
+              <td>
+               <form action="/destroy/{{$woning->id}}" method="post">
+                @csrf
+                <button onclick="return confirm('Zeker Weten?')" class="btn btn-danger" type="submit">Delete</button>
+               </form>
+              </td>
           </tr>
           @endforeach
       </tbody>
