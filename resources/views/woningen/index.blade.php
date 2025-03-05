@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Woningen</title>
+    @vite(['resources/css/app.css'])
 </head>
 <body>
-  <div class="container" style="margin:40px;">
+  <div class="container">
   <h1 class="display-3">Vakantie Woningen</h1>
     <div>
       <a href="/create" class="btn btn-primary mb-3">Woning Toevoegen</a>
     </div>
-    <table class="table">
-      <thead class="thead-light">
+    <div class="table">
+    <table>
+      <thead class="header">
           <tr>
-            <th>ID</th>
             <th>Naam</th>
             <th>Beschrijving</th>
             <th>Oppervlakte (km2)</th>
@@ -26,12 +27,12 @@
             <th>Updated at</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
       </thead>
       <tbody>
           @foreach($woningen as $woning)
-          <tr>
-              <td>{{$woning->id}}</td>
+          <tr class="index-row">
               <td>{{$woning->naam}} </td>
               <td>{{$woning->beschrijving}}</td>
               <td>{{$woning->oppervlakte}}</td>
@@ -46,7 +47,7 @@
                </form>
               </td>
               <td>
-              <div class="fotoding">
+              <div class="foto">
                     @php
                         $mediaItems = $woning->getMedia('images');
                     @endphp
@@ -64,8 +65,8 @@
           @endforeach
       </tbody>
     </table>
+    </div>
   </div>
-
 </body>
 </html>
 </x-app-layout>
