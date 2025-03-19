@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.foto img {
+    max-width: 100px;
+    min-width: 100px;
+    width: auto;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.foto{
+    display: flex;
+    gap: 5px;
+}
+
+.toolbar{
+    background-color: rgb(228, 191, 80);
+}
+
+/* Stijl voor oneven rijen */
+.index-row:nth-child(odd) {
+    background-color: #c2c2c2;
+}
+
+/* Stijl voor even rijen */
+.index-rowr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.table{
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 10px;
+}
