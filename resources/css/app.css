@@ -10,13 +10,16 @@
     margin-bottom: 5px;
 }
 
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
 .foto{
     display: flex;
     gap: 5px;
-}
-
-.login{
-    background-color: aqua;
 }
 
 .toolbar{

@@ -5,7 +5,11 @@ use App\Http\Controllers\WoningenController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return redirect('/woningen');
+    } else {
+        return redirect('/login');
+    }
 });
 
 Route::middleware('auth')->group(function () {
