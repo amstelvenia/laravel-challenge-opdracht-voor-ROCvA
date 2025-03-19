@@ -15,6 +15,10 @@
     gap: 5px;
 }
 
+.login{
+    background-color: aqua;
+}
+
 .toolbar{
     background-color: rgb(228, 191, 80);
 }
