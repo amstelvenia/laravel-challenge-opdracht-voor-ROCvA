@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container">
-  <h1>Woningen</h1>
+  <h1 class="display-3">Vakantie Woningen</h1>
     <div>
       <a href="/create" class="btn btn-primary mb-3">Woning Toevoegen</a>
     </div>
