@@ -8,10 +8,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/woningen', [WoningenController::class, 'index'])->name('woningen');
     Route::post('/store', [WoningenController::class, 'store'])->name('store');
