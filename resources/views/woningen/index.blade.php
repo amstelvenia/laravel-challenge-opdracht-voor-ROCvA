@@ -72,8 +72,8 @@
   document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.table');
     const scrollSpeed = 1;
-    const intervalTime = 5;
-    const duration = 2000;
+    const intervalTime = 2;
+    const duration = 800;
     let scrollAmount = 0;
 
     // Function to scroll forward
