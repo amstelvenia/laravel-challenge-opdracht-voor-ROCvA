@@ -13,8 +13,8 @@
         @vite(['resources/css/app.scss'])
     </head>
     <body>
-    <div class="iets">
-    <div class="h-screen flex justify-center items-center">
+        <div class="iets">
+            <div class="h-screen flex justify-center items-center">
         <div class="flex flex-col items-center"> <!-- Flexbox toegevoegd -->
             <a href="login">
                 <div class="logo">
@@ -25,7 +25,7 @@
                 {{ $slot }}
             </div>
         </div>
-    </div>
-</div>
+            </div>
+        </div>
     </body>
 </html>
