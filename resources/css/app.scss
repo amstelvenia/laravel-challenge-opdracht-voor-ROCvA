@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "components/variabele";
 
 .foto img {
     max-width: 100px;
@@ -23,10 +24,8 @@
 }
 
 .toolbar{
-    background-color: rgb(228, 191, 80);
+    background-color: $primary;
     width: 100%;
-    overflow-x: auto;
-    display: block;
 }
 
 /* Stijl voor oneven rijen */
@@ -45,4 +44,28 @@
     width: 100%;
     overflow-x: auto;
     display: block;
+}
+
+.create-update-container{
+    min-width: 300px;
+    background-color: $primary;
+    box-shadow: 1px 10px 30px -15px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container2{
+    background-color: $primary;
+}
+
+.home-container{
+    margin: 0 10px;
 }

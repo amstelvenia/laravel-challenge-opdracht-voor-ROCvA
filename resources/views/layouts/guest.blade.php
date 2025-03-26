@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        @vite(['resources/css/app.css'])
+        @vite(['resources/css/app.scss'])
     </head>
     <body>
     <div class="iets">
@@ -18,10 +18,10 @@
         <div class="flex flex-col items-center"> <!-- Flexbox toegevoegd -->
             <a href="login">
                 <div class="logo">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <x-application-logo class="w-200 h-200 fill-current text-gray-500" />
                 </div>
             </a>
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg container2">
                 {{ $slot }}
             </div>
         </div>
