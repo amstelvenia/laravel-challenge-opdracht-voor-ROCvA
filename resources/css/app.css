@@ -24,6 +24,9 @@
 
 .toolbar{
     background-color: rgb(228, 191, 80);
+    width: 100%;
+    overflow-x: auto;
+    display: block;
 }
 
 /* Stijl voor oneven rijen */
@@ -39,4 +42,7 @@
 .table{
     border: 1px solid rgb(203, 203, 203);
     border-radius: 10px;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
 }

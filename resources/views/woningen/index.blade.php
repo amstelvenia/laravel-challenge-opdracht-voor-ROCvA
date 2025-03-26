@@ -68,5 +68,47 @@
     </div>
   </div>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector('.table');
+    const scrollSpeed = 1;
+    const intervalTime = 5;
+    const duration = 2000;
+    let scrollAmount = 0;
+
+    // Function to scroll forward
+    function scrollForward() {
+      return setInterval(function() {
+        container.scrollLeft += scrollSpeed;
+        scrollAmount += scrollSpeed;
+
+        if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+          clearInterval(forwardInterval);
+        }
+      }, intervalTime);
+    }
+
+    // Function to scroll backward
+    function scrollBackward() {
+      return setInterval(function() {
+        container.scrollLeft -= scrollSpeed;
+        scrollAmount -= scrollSpeed;
+
+        if (container.scrollLeft <= 0) {
+          clearInterval(backwardInterval);
+        }
+      }, intervalTime);
+    }
+
+    // Start scrolling forward
+    let forwardInterval = scrollForward();
+
+    // After 5 seconds, stop forward scrolling and start backward scrolling
+    setTimeout(function() {
+      clearInterval(forwardInterval);
+      backwardInterval = scrollBackward();
+    }, duration);
+  });
+</script>
 </html>
 </x-app-layout>
