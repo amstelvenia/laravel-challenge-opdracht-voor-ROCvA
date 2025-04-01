@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/store', [WoningenController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [WoningenController::class, 'edit'])->name('woningen.edit');
     Route::post('/update/{id}', [WoningenController::class, 'update']);
+    Route::get('/show/{id}',  [WoningenController::class, 'show']);
     Route::post('/destroy/{id}',  [WoningenController::class, 'destroy']);
     Route::get('/create', [WoningenController::class, 'create']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

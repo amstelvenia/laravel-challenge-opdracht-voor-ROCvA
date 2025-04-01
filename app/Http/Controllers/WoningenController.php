@@ -55,6 +55,15 @@ class WoningenController extends Controller
     return redirect('/woningen')->with('success', 'Woning toegevoegd.');
     }
 
+    public function show(string $id)
+    {
+        // Zoek de post met het gegeven id
+        $woning = Woningen::find($id);
+
+        // Retourneer een view en geef de post-data door
+        return view('woningen.show', ['woning' => $woning]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

@@ -20,6 +20,11 @@
     align-items: center;
 }
 
+.logo-nav{
+    position: relative;
+    left: -500px;
+}
+
 .foto{
     display: flex;
     gap: 5px;
@@ -40,12 +45,28 @@
     background-color: #ffffff;
 }
 
+.show{
+    background-color: rgb(203, 128, 234);
+    border: 1px solid rgb(203, 128, 234);
+}
+
+.show:hover{
+    background-color: rgb(137, 91, 156);
+    border: 1px solid rgb(137, 91, 156);
+}
+
+.edit{
+    background-color: rgb(255, 153, 0);
+    border: rgb(255, 153, 0);
+}
+
+.edit:hover{
+    background-color: rgb(169, 103, 4);
+    border: rgb(169, 103, 4);
+}
+
 .table{
-    border: 1px solid rgb(203, 203, 203);
-    border-radius: 10px;
-    width: 100%;
-    overflow-x: auto;
-    display: block;
+    border: 1px solid rgb(174, 174, 174);
 }
 
 .create-update-container{
@@ -70,4 +91,8 @@
 
 .home-container{
     margin: 0 10px;
+}
+
+.show-header{
+    background-color: white;
 }

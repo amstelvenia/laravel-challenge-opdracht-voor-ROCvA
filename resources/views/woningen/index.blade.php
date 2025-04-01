@@ -39,7 +39,8 @@
                 <td>{{$woning->prijs}}</td>
                 <td>{{$woning->created_at}}</td>
                 <td>{{$woning->updated_at}}</td>
-                <td><a href="/edit/{{$woning->id}}" class="btn btn-primary">Update</a></td>
+                <td><a href="/show/{{$woning->id}}" class="btn btn-primary show">Show</a></td>
+                <td><a href="/edit/{{$woning->id}}" class="btn btn-primary edit">Update</a></td>
                 <td>
                  <form action="/destroy/{{$woning->id}}" method="post">
                   @csrf
