@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
               <label for="image">Afbeelding:</label>
-              <input type="file" name="images[]" id="images" multiple required>
+              <input type="file" name="images[]" id="images" multiple>
             </div>
             <button type="submit" class="btn btn-primary" value="Upload">Opslaan</button>
             <a href="/woningen" class="btn btn-danger">Annuleer</a>
