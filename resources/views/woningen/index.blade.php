@@ -11,12 +11,12 @@
 </head>
 <body>
   <div class="home-container">
-    <h1 class="display-3">Vakantie Woningen</h1>
+    <h1 class="display-3 title">Vakantie Woningen</h1>
       <div>
         <a href="/create" class="btn btn-primary mb-3">Woning Toevoegen</a>
       </div>
       <div class="table">
-      <table>
+        <table>
         <thead class="header">
             <tr>
               <th>Naam</th>
@@ -65,7 +65,7 @@
             </tr>
             @endforeach
         </tbody>
-      </table>
+        </table>
       </div>
   </div>
 </body>
