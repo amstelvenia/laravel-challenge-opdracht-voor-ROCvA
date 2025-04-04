@@ -12,7 +12,7 @@
 }
 
 .footer{
-    margin-top: 58px;
+    margin-top: 40.5px;
     padding: 10px;
     text-align: center;
 }
@@ -39,6 +39,20 @@
 .toolbar{
     background-color: $primary;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      padding: 8px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 }
 
 .footer{
@@ -46,16 +60,6 @@
     bottom: 0;
     width: 100%;
     z-index: 1000;
-}
-
-/* Stijl voor oneven rijen */
-.index-row:nth-child(odd) {
-    background-color: #c2c2c2;
-}
-
-/* Stijl voor even rijen */
-.index-rowr:nth-child(even) {
-    background-color: #ffffff;
 }
 
 .show{
@@ -78,11 +82,40 @@
     border: rgb(169, 103, 4);
 }
 
-.table{
-    border: 1px solid rgb(174, 174, 174);
-    margin: 0;
+.swipe{
+    color: rgb(255, 255, 255);
+
+    @media(max-width: 640px){
+        color: black;
+    }
 }
 
+.profile {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: -13px;
+
+    @media (max-width: 640px) {
+      display: block; // or display: inline-block; or display: grid;
+      margin-left: 20px; // optional: adjust spacing for mobile
+      margin-right: 20px;
+    }
+  }
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.home-container{
+    margin: 0 10px;
+}
+.table-container{
+    margin-bottom: 113px;
+}
 .create-update-container{
     min-width: 300px;
     background-color: $primary;
@@ -101,10 +134,22 @@
 
 .container2{
     background-color: $primary;
-}
+    width: 100%;
+    max-width: 28rem;
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    border-radius: 0.5rem;
 
-.home-container{
-    margin: 0 10px;
+    @media (max-width: 640px) {
+        max-width: 20rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 }
 
 .show-header{

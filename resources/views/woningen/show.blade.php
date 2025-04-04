@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +12,14 @@
 <body>
 <div class="home-container">
     <div class="table-responsive">
-        <h1 class="display-3">{{$woning->naam}}</h1>
-        <a href="/woningen" class="btn btn-primary mb-3 small">Terug</a>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Woningen') }}
+        </h2>
+    </x-slot>
+        <a href="/woningen" class="btn btn-primary mb-3 mt-3 small">Terug</a>
         <div class="table-container">
-        <table class="table">
+        <table class="table table-bordered table-striped table-hover">
             <tr class="index-row">
                 <th class="header">Naam</th>
                 <td>{{$woning->naam}}</td>
@@ -55,3 +60,4 @@
 </div>
 </body>
 </html>
+</x-app-layout>

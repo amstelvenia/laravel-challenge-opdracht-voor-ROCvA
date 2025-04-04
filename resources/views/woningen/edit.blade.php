@@ -11,7 +11,7 @@
 <body>
   <div class="container">
   <div class="create-update-container">
-    <h1 class="display-3">Vakantie Woningen</h1>
+    <h1 class="display-4">Vakantie Woningen</h1>
 
     <form method="post" action="/update/{{$woning->id}}" enctype="multipart/form-data">
           @csrf

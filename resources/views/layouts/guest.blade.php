@@ -21,7 +21,7 @@
                     <x-application-logo class="w-200 h-200 fill-current text-gray-500" />
                 </div>
             </a>
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg container2">
+            <div class="container2">
                 {{ $slot }}
             </div>
         </div>
