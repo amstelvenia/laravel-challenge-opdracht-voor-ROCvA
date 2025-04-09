@@ -34,8 +34,10 @@
                   <th>Updated at</th>
                   <th></th>
                   <th></th>
+                  @role('admin')
                   <th></th>
                   <th></th>
+                  @endrole
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +50,7 @@
                     <td>{{$woning->created_at}}</td>
                     <td>{{$woning->updated_at}}</td>
                     <td><a href="/show/{{$woning->id}}" class="btn btn-primary show">Show</a></td>
+                    @role('admin')
                     <td><a href="/edit/{{$woning->id}}" class="btn btn-primary edit">Update</a></td>
                     <td>
                      <form action="/destroy/{{$woning->id}}" method="post">
@@ -55,6 +58,7 @@
                       <button onclick="return confirm('Zeker Weten?')" class="btn btn-danger" type="submit">Delete</button>
                      </form>
                     </td>
+                    @endrole
                     <td>
                     <div class="foto">
                           @php

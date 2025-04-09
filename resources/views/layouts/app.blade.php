@@ -33,5 +33,5 @@
             </main>
         </div>
     </body>
-    <footer class="footer">Billy den Ouden ©</footer>
+    <!-- <footer class="footer">Billy den Ouden ©</footer> -->
 </html>
