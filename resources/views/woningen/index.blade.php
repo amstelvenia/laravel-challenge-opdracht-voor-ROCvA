@@ -17,7 +17,9 @@
         </h2>
     </x-slot>
       <div class="mt-4">
-        <a href="/create" class="btn btn-primary">Woning Toevoegen</a>
+        @role('admin')
+            <a href="/create" class="btn btn-primary">Woning Toevoegen</a>
+        @endrole
       </div>
       <p class='swipe'>Swipe de tabel om meer te zien</p>
       <div class="table-responsive table">
