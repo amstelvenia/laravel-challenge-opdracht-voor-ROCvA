@@ -34,6 +34,9 @@
                   <th>Updated at</th>
                   <th></th>
                   <th></th>
+                  @role('klant')
+                  <th></th>
+                  @endrole
                   @role('admin')
                   <th></th>
                   <th></th>
@@ -50,6 +53,9 @@
                     <td>{{$woning->created_at}}</td>
                     <td>{{$woning->updated_at}}</td>
                     <td><a href="/show/{{$woning->id}}" class="btn btn-primary show">Show</a></td>
+                    @role('klant')
+                    <td><a href="/bestel/{{$woning->id}}" class="btn btn-primary">Bestel</a></td>
+                    @endrole
                     @role('admin')
                     <td><a href="/edit/{{$woning->id}}" class="btn btn-primary edit">Update</a></td>
                     <td>

@@ -15,11 +15,13 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/woningen', [WoningenController::class, 'index'])->name('woningen');
     Route::post('/store', [WoningenController::class, 'store'])->name('store');
-    Route::get('/edit/{id}', [WoningenController::class, 'edit'])->name('woningen.edit');
+    Route::get('/edit/{id}', [WoningenController::class, 'edit'])
+    ->name('woningen.edit')
+    ->middleware(['auth', 'role:admin']);
     Route::post('/update/{id}', [WoningenController::class, 'update']);
     Route::get('/show/{id}',  [WoningenController::class, 'show']);
     Route::post('/destroy/{id}',  [WoningenController::class, 'destroy']);
-    Route::get('/create', [WoningenController::class, 'create']);
+    Route::get('/create', [WoningenController::class, 'create'])->middleware('role:admin');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
