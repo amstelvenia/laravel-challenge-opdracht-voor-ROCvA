@@ -14,10 +14,11 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/woningen', [WoningenController::class, 'index'])->name('woningen');
+    Route::get('/beheer', [WoningenController::class, 'user'])->name('beheer');
+    Route::get('/model_has_roles', [WoningenController::class, 'model_has_roles'])->name('model_has_roles');
+    Route::get('/roles', [WoningenController::class, 'roles'])->name('roles');
     Route::post('/store', [WoningenController::class, 'store'])->name('store');
-    Route::get('/edit/{id}', [WoningenController::class, 'edit'])
-    ->name('woningen.edit')
-    ->middleware(['auth', 'role:admin']);
+    Route::get('/edit/{id}', [WoningenController::class, 'edit'])->name('woningen.edit')->middleware(['auth', 'role:admin']);
     Route::post('/update/{id}', [WoningenController::class, 'update']);
     Route::get('/show/{id}',  [WoningenController::class, 'show']);
     Route::post('/destroy/{id}',  [WoningenController::class, 'destroy']);

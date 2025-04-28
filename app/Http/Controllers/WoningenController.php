@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Woningen;
+use App\Models\User;
 use Spatie\Image\Manipulation;
+use Illuminate\Support\Facades\DB;
 
 class WoningenController extends Controller
 {
@@ -15,7 +17,16 @@ class WoningenController extends Controller
     {
         $woningen = Woningen::all();
 
-        return view('woningen.index', compact('woningen')); // -> resources/views/stocks/index.blade.php
+        return view('woningen.index', compact('woningen'));
+    }
+
+    public function user()
+    {
+        $beheer = User::all();
+        $model_has_roles = DB::table('model_has_roles')->get();
+        $roles = DB::table('roles')->get();
+
+        return view('woningen.beheer', compact('beheer', 'model_has_roles', 'roles'));
     }
 
     /**
@@ -23,7 +34,7 @@ class WoningenController extends Controller
      */
     public function create()
     {
-        return view('woningen.create'); // -> resources/views/stocks/create.blade.php
+        return view('woningen.create');
     }
 
     /**

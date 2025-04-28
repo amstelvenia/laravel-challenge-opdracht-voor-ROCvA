@@ -30,7 +30,11 @@
                         <x-dropdown-link :href="route('woningen')">
                             {{ __('Woningen') }}
                         </x-dropdown-link>
-
+                        @role('admin')
+                        <x-dropdown-link :href="route('beheer')">
+                            {{ __('Beheer') }}
+                        </x-dropdown-link>
+                        @endrole
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
