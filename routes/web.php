@@ -19,7 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/roles', [WoningenController::class, 'roles'])->name('roles');
     Route::post('/store', [WoningenController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [WoningenController::class, 'edit'])->name('woningen.edit')->middleware(['auth', 'role:admin']);
+    Route::get('/editPermission/{id}', [WoningenController::class, 'editPermission'])->name('woningen.editPermission')->middleware(['auth', 'role:admin']);
     Route::post('/update/{id}', [WoningenController::class, 'update']);
+    Route::post('/user_to_rol/{id}', [WoningenController::class, 'updateRole']);
     Route::get('/show/{id}',  [WoningenController::class, 'show']);
     Route::post('/destroy/{id}',  [WoningenController::class, 'destroy']);
     Route::get('/create', [WoningenController::class, 'create'])->middleware('role:admin');

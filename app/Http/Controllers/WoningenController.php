@@ -7,6 +7,7 @@ use App\Models\Woningen;
 use App\Models\User;
 use Spatie\Image\Manipulation;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class WoningenController extends Controller
 {
@@ -25,8 +26,10 @@ class WoningenController extends Controller
         $beheer = User::all();
         $model_has_roles = DB::table('model_has_roles')->get();
         $roles = DB::table('roles')->get();
+        $permissions = DB::table('permissions')->get();
+        $role_has_permissions = DB::table('role_has_permissions')->get();
 
-        return view('woningen.beheer', compact('beheer', 'model_has_roles', 'roles'));
+        return view('woningen.beheer', compact('beheer', 'model_has_roles', 'roles', 'permissions', 'role_has_permissions'));
     }
 
     /**
@@ -82,6 +85,54 @@ class WoningenController extends Controller
     {
         $woning = Woningen::find($id);
         return view('woningen.edit',['woning'=>$woning]);
+    }
+
+    public function editPermission($id)
+    {
+        $roles = DB::table('roles')->where('id', $id)->first();
+        $permissions = DB::table('permissions')->get();
+        return view('woningen.editPermission', compact('roles', 'permissions'));
+    }
+
+    public function editRole($id)
+    {
+        $user = User::findOrFail($id);
+        $roles = DB::table('roles')->get();
+        $currentRoleId = DB::table('model_has_roles')->where('model_id', $id)->value('role_id');
+
+        return view('woningen.edit-role', compact('user', 'roles', 'currentRoleId'));
+    }
+
+    public function updateRole(Request $request, $id)
+    {
+        $roleId = $request->role;
+
+        // Check if user already has a role entry
+        $exists = DB::table('model_has_roles')->where('model_id', $id)->exists();
+
+        if ($exists) {
+            DB::table('model_has_roles')
+                ->where('model_id', $id)
+                ->update(['role_id' => $roleId]);
+        } else {
+            DB::table('model_has_roles')
+                ->insert([
+                    'role_id' => $roleId,
+                    'model_type' => 'App\\Models\\User', // Replace with actual User model if different
+                    'model_id' => $id,
+                ]);
+        }
+
+        // Get current user's role to determine redirect
+        $currentUserRoleId = DB::table('model_has_roles')
+            ->where('model_id', Auth::id())
+            ->value('role_id');
+
+        if ($currentUserRoleId == 1) {
+            return redirect('/beheer')->with('success', 'Role updated successfully.');
+        } else {
+            return redirect('/woningen')->with('success', 'Role updated successfully.');
+        }
     }
 
     /**
