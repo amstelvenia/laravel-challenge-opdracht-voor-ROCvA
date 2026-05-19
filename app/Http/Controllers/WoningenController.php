@@ -87,6 +87,24 @@ class WoningenController extends Controller
         return view('woningen.edit',['woning'=>$woning]);
     }
 
+    public function addRole()
+    {
+        return view('woningen.addRole');
+    }
+
+    public function storeRole(Request $request){
+        $request->validate([
+            'naam'=>'required'
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => $request->get('naam'),
+            'guard_name' => 'web',
+            // Add more columns as needed
+        ]);
+        return redirect('/beheer')->with('success', 'Role toegevoegd.');
+    }
+
     public function editPermission($id)
     {
         $roles = DB::table('roles')->where('id', $id)->first();

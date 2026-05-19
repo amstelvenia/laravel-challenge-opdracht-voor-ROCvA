@@ -77,6 +77,7 @@
 
                           @if($mediaItems->isNotEmpty())
                           @foreach($mediaItems as $mediaItem)
+                          {{ $mediaItem->getUrl() }}
                               <img src="{{ $mediaItem->getUrl() }}" alt="images" width="100" class="foto">
                           @endforeach
                           @else

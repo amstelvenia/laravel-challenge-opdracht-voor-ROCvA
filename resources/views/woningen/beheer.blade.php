@@ -107,7 +107,7 @@
                 @endforeach
                 <td></td>
                 <td></td>
-                <td><button type="submit" class="btn btn-primary" value="Upload">Add Role</button></td>
+                <td><a href="/addRole" class="btn btn-primary create">Add Role</a></button></td>
             </tbody>
             </table>
         </div>
